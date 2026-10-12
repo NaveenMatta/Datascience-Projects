@@ -47,8 +47,7 @@ def replace_measurement_zeros(X):
     return X
 
 RANDOM_STATE = 42
-DATA_PATH = Path(__file__).parent / "diabetes.csv"
-
+DATA_PATH = Path(__file__).parent / "data" / "diabetes.csv"
 
 def load_data():
     """Load the dataset and separate features from the target."""
