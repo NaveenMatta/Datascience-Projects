@@ -54,6 +54,23 @@ Both experiments use the same held-out test split. The alternative preprocessing
 
 These are results from a single test split, not evidence of clinical effectiveness. The model is for educational purposes only and must not be used for medical decisions.  
 
+## Demo Output
+
+The model selects hyperparameters using five-fold stratified cross-validation on the training set, then evaluates the selected pipeline on a held-out test set.
+
+```text
+Best parameters: {'model__C': 1.0, 'model__class_weight': 'balanced'}
+Best training CV ROC-AUC: 0.845
+Test accuracy: 0.734
+Test ROC-AUC: 0.813
+
+Confusion matrix:
+[[75 25]
+ [16 38]]
+```
+
+**Interpretation:** On this test split, the model identifies 38 of 54 positive cases and misses 16. It also flags 25 negative cases as positive. These are educational results, not evidence of clinical usefulness.
+
 ## How to Run
 
 Install dependencies:
