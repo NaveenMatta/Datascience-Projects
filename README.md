@@ -6,7 +6,7 @@
 
 ## Overview
 
-An educational binary classification project using the Pima Indians Diabetes dataset. It compares a baseline Logistic Regression pipeline with an alternative preprocessing experiment.
+An end-to-end machine learning project for diabetes classification using Python and Scikit-learn. The project demonstrates data preprocessing, missing-value handling, leakage-aware model training, hyperparameter tuning, cross-validation, and held-out test evaluation. Automated tests run through GitHub Actions on every push and pull request to the `main` branch.  
 
 **Disclaimer:** This project is for educational purposes only and is not intended for clinical diagnosis.
 
