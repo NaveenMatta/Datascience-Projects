@@ -21,8 +21,30 @@ from sklearn.model_selection import (
     train_test_split,
 )
 from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import FunctionTransformer
 from sklearn.preprocessing import RobustScaler
 
+
+MEASUREMENT_COLUMNS = [
+    "Glucose",
+    "BloodPressure",
+    "SkinThickness",
+    "Insulin",
+    "BMI",
+]
+
+
+
+
+def replace_measurement_zeros(X):
+    """Treat zero measurements as missing for selected columns."""
+    X = X.copy()
+
+    for column in MEASUREMENT_COLUMNS:
+        X[column] = X[column].astype("float64")
+        X[column] = X[column].mask(X[column] == 0)
+
+    return X
 
 RANDOM_STATE = 42
 DATA_PATH = Path(__file__).parent / "diabetes.csv"
@@ -47,10 +69,18 @@ def load_data():
     return X, y
 
 
+
 def build_pipeline():
-    """Create preprocessing and model steps fitted within each fold."""
+    """Impute missing measurements, scale features, and fit logistic regression."""
     return Pipeline(
         steps=[
+            (
+                "zero_to_missing",
+                FunctionTransformer(
+                    replace_measurement_zeros,
+                    validate=False,
+                ),
+            ),
             ("imputer", SimpleImputer(strategy="median")),
             ("scaler", RobustScaler()),
             (
