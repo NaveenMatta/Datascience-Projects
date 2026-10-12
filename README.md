@@ -25,10 +25,11 @@ An educational binary classification project using the Pima Indians Diabetes dat
 - `diabetes_model.py` — training and evaluation pipeline
 - `test_diabetes_model.py` — automated tests
 - `requirements.txt` — Python dependencies
-- `model_results.txt` — baseline evaluation results
-- `improved_model_results.txt` — alternative preprocessing results
 - `Diabetes prediction using ML.ipynb` — original exploratory notebook
-- `.github/workflows/tests.yml` — CI workflow
+- `Ecommerce customer purchase intention mod...` — original exploratory notebook
+- `ML Project using LSTM-checkpoint.ipynb` — original LSTM notebook
+- `ML Project using ML-checkpoint.ipynb` — original ML notebook
+- `.github/workflows/tests.yml` — GitHub Actions CI workflow
 
 ## Methodology
 
