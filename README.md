@@ -50,9 +50,9 @@ The alternative experiment treats zero values as missing in Glucose, BloodPressu
 | Positive-class recall | 0.500 | 0.704 |
 | Positive-class F1-score | 0.56 | 0.65 |
 
-Both experiments use the same held-out test split. The alternative detects more positive cases but also produces more false positives. Its ROC-AUC is slightly lower, so it is not better on every metric.
+Both experiments use the same held-out test split. The alternative preprocessing increases positive-class recall from 0.500 to 0.704, identifying more positive cases, but also increases false positives from 15 to 25. It misses 16 positive cases, compared with 27 for the baseline. ROC-AUC decreases slightly from 0.820 to 0.813, so the trade-off depends on the evaluation objective.
 
-These results come from one split and do not establish clinical usefulness.
+These are results from a single test split, not evidence of clinical effectiveness. The model is for educational purposes only and must not be used for medical decisions.  
 
 ## How to Run
 
