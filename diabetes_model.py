@@ -54,7 +54,7 @@ def load_data():
     if not DATA_PATH.exists():
         raise FileNotFoundError(
             f"Dataset not found: {DATA_PATH}. "
-            "Place diabetes.csv beside this script."
+            "Place data/diabetes.csv beside this script."
         )
 
     df = pd.read_csv(DATA_PATH)
