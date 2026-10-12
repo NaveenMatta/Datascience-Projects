@@ -1,5 +1,9 @@
 # Diabetes Prediction Using Machine Learning
 
+
+[![Python Tests](https://github.com/NaveenMatta/Datascience-Projects/actions/workflows/tests.yml/badge.svg)](https://github.com/NaveenMatta/Datascience-Projects/actions/workflows/tests.yml)
+
+
 ## Overview
 An educational binary classification project using the Pima Indians Diabetes dataset. The project compares a baseline Logistic Regression pipeline with an alternative preprocessing experiment.
 
