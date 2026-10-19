@@ -22,6 +22,7 @@ def make_test_data(n=40):
     )
 
 
+
 def test_zero_handling_preserves_valid_zero_pregnancies():
     data = make_test_data(2)
     data.loc[0, "Pregnancies"] = 0
@@ -33,12 +34,18 @@ def test_zero_handling_preserves_valid_zero_pregnancies():
 
     result = dm.replace_measurement_zeros(data)
 
+    # Zero pregnancies is valid and must remain zero.
     assert result.loc[0, "Pregnancies"] == 0
 
-    for column in dm.MEASUREMENT_COLUMNS:
+    # Only the measurement zeros explicitly set in row 0
+    # should become missing.
+    for column in ["Glucose", "SkinThickness", "Insulin", "BMI"]:
         assert pd.isna(result.loc[0, column])
 
+    # BloodPressure is zero in row 1, not row 0.
     assert pd.isna(result.loc[1, "BloodPressure"])
+    assert result.loc[0, "BloodPressure"] == 60
+
 
 
 def test_zero_handling_does_not_modify_input():
